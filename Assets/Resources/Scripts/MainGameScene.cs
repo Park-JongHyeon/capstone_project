@@ -10,4 +10,19 @@ public class MainGameScene : MonoBehaviour {
 	void Update () {
 	
 	}
+
+	public void MoveToARScene()
+	{
+		Application.LoadLevel ("ARScene");
+	}
+
+	public void MoveToRabbitScene()
+	{
+		Application.LoadLevel ("RabbitScene");
+	}
+
+	public void MoveToMainScene()
+	{
+		Application.LoadLevel ("MainGameScene");
+	}
 }
