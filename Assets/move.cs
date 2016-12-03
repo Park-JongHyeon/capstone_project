@@ -11,28 +11,49 @@ public class move : MonoBehaviour {
 
 	public float turnSpeed = 50.0f;
 
+	private Animation anim;
+	private bool isMoving = false;
+
 
 	// Use this for initialization
 	void Start () {
+		anim = GetComponent<Animation> ();
 		word = GameObject.Find ("word").GetComponent<word> ();
 		tr = GetComponent<Transform> ();
+		// start with idle animation
+		anim.Play ("idle2");
 	}
 
 	// Update is called once per frame
 	void Update () {
+		bool anyOfInputKeyPressed = false;
 
-		if (Input.GetKey (KeyCode.UpArrow))
+		if (Input.GetKey (KeyCode.UpArrow)) {
 			transform.Translate (Vector3.forward * moveSpeed * Time.deltaTime);
+			anyOfInputKeyPressed = true;
+		}
 
-		if (Input.GetKey (KeyCode.DownArrow))
+		if (Input.GetKey (KeyCode.DownArrow)) {
 			transform.Translate (-Vector3.forward * moveSpeed * Time.deltaTime);
+			anyOfInputKeyPressed = true;
+		}
 
-		if (Input.GetKey (KeyCode.LeftArrow))
+		if (Input.GetKey (KeyCode.LeftArrow)) {
 			transform.Rotate (Vector3.up * -turnSpeed * Time.deltaTime);
+			anyOfInputKeyPressed = true;
+		}
 
-		if (Input.GetKey (KeyCode.RightArrow))
+		if (Input.GetKey (KeyCode.RightArrow)) {
 			transform.Rotate (Vector3.up * turnSpeed * Time.deltaTime);
-		
+			anyOfInputKeyPressed = true;
+		}
+
+		if (anyOfInputKeyPressed) {
+			anim.Play ("hop");
+		} else {
+			anim.Play ("idle2");
+		}
+
 		#if UNITY_ANDROID
 		transform.Translate(0, 0, -Input.acceleration.z*moveSpeed*Time.deltaTime);
 		transform.Rotate(0, Input.acceleration.x*turnSpeed*Time.deltaTime, 0);
