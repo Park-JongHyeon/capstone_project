@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
 public class move : MonoBehaviour {
 	private word word;
 	private float h = 0.0f;
@@ -14,7 +15,7 @@ public class move : MonoBehaviour {
 	private Animation anim;
 	private bool isMoving = false;
 
-
+//	private AudioSource source;
 	// Use this for initialization
 	void Start () {
 		anim = GetComponent<Animation> ();
@@ -22,6 +23,7 @@ public class move : MonoBehaviour {
 		tr = GetComponent<Transform> ();
 		// start with idle animation
 		anim.Play ("idle2");
+		//source.GetComponent<AudioSource> ();
 	}
 
 	// Update is called once per frame
@@ -86,43 +88,53 @@ public class move : MonoBehaviour {
 			//	tr.Translate (-Vector3.forward * moveSpeed * Time.deltaTime*3,Space.Self);
 			tr.Translate (0, 0, Input.acceleration.z * moveSpeed * Time.deltaTime * 3);
 		} else if (coll.gameObject.name.Equals("Pear") && item == 0) {
+			SoundManager.soundManager.PlaySound ();
 			Destroy(coll.gameObject);
 			word.DispWord ("Pepper");
 			item += 1;
 		} else if(coll.gameObject.name.Equals("Pepper_Pointed") && item == 1){
 			Destroy(coll.gameObject);
+			SoundManager.soundManager.PlaySound ();
 			word.DispWord ("Watermelon");
 			item += 1;
 		} else if(coll.gameObject.name.Equals("Watermelon") && item == 2){
 			Destroy(coll.gameObject);
+			SoundManager.soundManager.PlaySound ();
 			word.DispWord ("Apple");
 			item += 1;
 		} else if(coll.gameObject.name.Equals("Apple_G") && item == 3){
 			Destroy(coll.gameObject);
+			SoundManager.soundManager.PlaySound ();
 			word.DispWord ("Orange");
 			item += 1;
 		} else if(coll.gameObject.name.Equals("Orange") && item == 4){
 			Destroy(coll.gameObject);
+			SoundManager.soundManager.PlaySound ();
 			word.DispWord ("Tomato");
 			item += 1;
 		} else if(coll.gameObject.name.Equals("Tomato") && item == 5){
 			Destroy(coll.gameObject);
+			SoundManager.soundManager.PlaySound ();;
 			word.DispWord ("Starwberry");
 			item += 1;
 		} else if(coll.gameObject.name.Equals("Strawberry") && item == 6){
 			Destroy(coll.gameObject);
+			SoundManager.soundManager.PlaySound ();
 			word.DispWord ("Lemon");
 			item += 1;
 		} else if(coll.gameObject.name.Equals("Lemon") && item == 7){
 			Destroy(coll.gameObject);
+			SoundManager.soundManager.PlaySound ();
 			word.DispWord ("Banana");
 			item += 1;
 		} else if(coll.gameObject.name.Equals("Banana") && item == 8){
 			Destroy(coll.gameObject);
+			SoundManager.soundManager.PlaySound ();
 			word.DispWord ("Coconut");
 			item += 1;
 		} else if(coll.gameObject.name.Equals("Coconut") && item == 9){
 			Destroy(coll.gameObject);
+			SoundManager.soundManager.PlaySound ();
 			item += 1;
 		}
 	}

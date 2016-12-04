@@ -5,10 +5,10 @@ using UnityEngine.UI;
 public class word : MonoBehaviour {
 
 	public Text txtWord;
-	private string totWord = "PEAR";
+	private string totWord = "Pear";
 	// Use this for initialization
 	void Start () {
-		DispWord ("PEAR");
+		DispWord ("Pear");
 	}
 
 	// Update is called once per frame

@@ -8,8 +8,16 @@ namespace Lean.Touch
 	{
 		private coin coin;
 		int flag =0;
+		public AudioClip soundClip;
+		AudioSource soundSource;
+
 		void Start(){
 			coin = GameObject.Find ("coin").GetComponent<coin> ();
+			soundSource = GetComponent<AudioSource> ();
+		}
+
+		public void PlaySound(){
+			soundSource.PlayOneShot (soundClip);
 		}
 
 		[Tooltip("This stores the layers we want the raycast to hit (make sure this GameObject's layer is included!)")]
@@ -66,6 +74,7 @@ namespace Lean.Touch
 				{
 					// Set the current finger to this one
 					draggingFinger = finger;
+					PlaySound ();
 					if (flag != 1) {
 						coin.DispCoin (1);
 						flag = 1;
