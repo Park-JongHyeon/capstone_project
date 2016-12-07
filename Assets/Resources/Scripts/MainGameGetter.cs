@@ -18,6 +18,7 @@ public class MainGameGetter : MonoBehaviour {
         }
         Text myTitle = GameObject.Find("Title").GetComponent<Text>();
         myTitle.text = result[1] + "님 환영합니다";       // 0=Success, 1=닉네임, 2=코인, 3= 스코어
+        getInfo();
     }
 
 
@@ -28,7 +29,7 @@ public class MainGameGetter : MonoBehaviour {
 
     IEnumerator doGetInfo()
     {
-        Text myCoin = GameObject.Find("conVal").GetComponent<Text>();
+        Text myCoin = GameObject.Find("coinVal").GetComponent<Text>();
         Text myScore = GameObject.Find("scoreVal").GetComponent<Text>();
         string url = "http://52.78.164.46/userInfo.php";
         WWWForm infoData = new WWWForm();
@@ -42,11 +43,15 @@ public class MainGameGetter : MonoBehaviour {
         {
             Debug.Log(x._s);
             nick = x._s.Split('/');
-            infoData.AddField("Nick", nick[1]);       ////       2번이나 3번 보내질수도 있다// 원래 괄호 밖으로 빼야 정상
+            //infoData.AddField("Nick", nick[1]);       ////       2번이나 3번 보내질수도 있다// 원래 괄호 밖으로 빼야 정상
         }
-       
+        //nick = Entity.e._s.pop();
+        infoData.AddField("Nick", result[1]);
+        Debug.Log("result[1] : "+result[1]);
+        
         WWW info = new WWW(url, infoData);
         yield return info;
+        Debug.Log("info : " + info.text);
         resultInfo = info.text;
         char sp = '/';
         value = resultInfo.Split(sp);
