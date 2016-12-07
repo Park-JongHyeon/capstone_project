@@ -6,8 +6,10 @@ public class timer : MonoBehaviour {
 	public Text txtTime;
 	public static float time;
 	public int flag =0;
-	// Use this for initialization
-	void Start () {
+    Text timeValue = GameObject.Find("timeValue").GetComponent<Text>();
+
+    // Use this for initialization
+    void Start () {
 		time = 0;
 	}
 	
@@ -18,5 +20,6 @@ public class timer : MonoBehaviour {
 		}
 		int t = Mathf.FloorToInt (time);
 		txtTime.text= "Time : " + t.ToString ();
-	}
+        timeValue.text = t.ToString();
+    }
 }
