@@ -3,11 +3,12 @@ using System.Collections;
 using UnityEngine.UI;
 
 
-public class RankingHandler : MonoBehaviour {
+public class TotalRankHandler : MonoBehaviour {
 
     string[] result;
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         foreach (_e x in Entity.e)
         {
             //data = x._s;
@@ -26,11 +27,11 @@ public class RankingHandler : MonoBehaviour {
 
     IEnumerator doRank()
     {
-        Text myRank = GameObject.Find("MyRanking").GetComponent<Text>();
-        string url = "http://52.78.164.46/showMyrank.php";
+        Text totRank = GameObject.Find("TotalRank").GetComponent<Text>();
+        string url = "http://52.78.164.46/loadRanking.php";
         WWWForm rankData = new WWWForm();
 
-    
+
 
         string[] nick;
         string resultInfo;
@@ -48,7 +49,7 @@ public class RankingHandler : MonoBehaviour {
         rankData.AddField("Nick", result[1]);
         WWW rank = new WWW(url, rankData);
         yield return rank;
-        myRank.text = rank.text;
+        totRank.text = rank.text;
         char sp = '/';
         //value = myRank.text.Split(sp);
 

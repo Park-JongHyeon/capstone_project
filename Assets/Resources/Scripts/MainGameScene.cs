@@ -18,10 +18,14 @@ public class MainGameScene : MonoBehaviour {
 	}
 
 
-	public void MoveToRabbitScene()
+
+
+    public void MoveToRabbitScene()
 	{
 		Application.LoadLevel ("RabbitScene");
 	}
+
+
 
 
 	public void MoveToMainScene()
