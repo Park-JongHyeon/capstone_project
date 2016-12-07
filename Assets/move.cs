@@ -4,6 +4,7 @@ using System.Collections;
 
 public class move : MonoBehaviour {
 	private word word;
+	private timer timer;
 	private float h = 0.0f;
 	private float v = 0.0f;
 	private int item = 0;
@@ -20,6 +21,7 @@ public class move : MonoBehaviour {
 	void Start () {
 		anim = GetComponent<Animation> ();
 		word = GameObject.Find ("word").GetComponent<word> ();
+		timer = GameObject.Find ("timer").GetComponent<timer> ();
 		tr = GetComponent<Transform> ();
 		// start with idle animation
 		anim.Play ("hop");
@@ -142,6 +144,7 @@ public class move : MonoBehaviour {
 			Destroy(coll.gameObject);
 			SoundManager.soundManager.PlaySound ();
 			item += 1;
+			timer.flag = 1;
 		}
 	}
 		

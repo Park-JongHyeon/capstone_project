@@ -39,5 +39,11 @@ public class MainGameScene : MonoBehaviour {
 
     }
 
+	public void MoveToRankingScene()
+	{
+		Application.LoadLevel("RankingScene");
+
+	}
+
 
 }
