@@ -9,7 +9,7 @@ public class QuitRabbit : MonoBehaviour {
     string timeValue;
     string data;
     char sp = '/';
-    Text textTime = GameObject.Find("timeValue").GetComponent<Text>();
+    
 
     void Start()
     {
@@ -31,6 +31,7 @@ public class QuitRabbit : MonoBehaviour {
 
     IEnumerator doScore()
     {
+        Text textTime = GameObject.Find("timeValue").GetComponent<Text>();
         timeValue = textTime.text;
         string url = "http://52.78.164.46/scoreUpdate.php";
         WWWForm scoreData = new WWWForm();

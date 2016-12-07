@@ -8,8 +8,6 @@ public class MainGameGetter : MonoBehaviour {
     static string[] result;
     string data;
     char sp = '/';
-    Text myCoin = GameObject.Find("conVal").GetComponent<Text>();
-    Text myScore = GameObject.Find("scoreVal").GetComponent<Text>();
     // Use this for initialization
     void Start () {
 	foreach (_e x in Entity.e)
@@ -30,6 +28,8 @@ public class MainGameGetter : MonoBehaviour {
 
     IEnumerator doGetInfo()
     {
+        Text myCoin = GameObject.Find("conVal").GetComponent<Text>();
+        Text myScore = GameObject.Find("scoreVal").GetComponent<Text>();
         string url = "http://52.78.164.46/userInfo.php";
         WWWForm infoData = new WWWForm();
         
