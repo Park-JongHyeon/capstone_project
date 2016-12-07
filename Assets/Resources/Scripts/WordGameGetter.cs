@@ -20,6 +20,7 @@ public class WordGameGetter : MonoBehaviour {
         }
         Text prevCoin = GameObject.Find("coinValue").GetComponent<Text>();
         prevCoin.text = result[2];       // 0=Success, 1=닉네임, 2=코인, 3= 스코어
+        Debug.Log(prevCoin.text);
     }
 
 
