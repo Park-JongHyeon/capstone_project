@@ -10,7 +10,7 @@ public class move : MonoBehaviour {
 	private Transform tr;
 	public float moveSpeed = 1.0f;
 
-	public float turnSpeed = 50.0f;
+	public float turnSpeed = 100.0f;
 
 	private Animation anim;
 	private bool isMoving = false;
@@ -22,7 +22,7 @@ public class move : MonoBehaviour {
 		word = GameObject.Find ("word").GetComponent<word> ();
 		tr = GetComponent<Transform> ();
 		// start with idle animation
-		anim.Play ("idle2");
+		anim.Play ("hop");
 		//source.GetComponent<AudioSource> ();
 	}
 
@@ -49,15 +49,21 @@ public class move : MonoBehaviour {
 			transform.Rotate (Vector3.up * turnSpeed * Time.deltaTime);
 			anyOfInputKeyPressed = true;
 		}
-
+		/*
 		if (anyOfInputKeyPressed) {
 			anim.Play ("hop");
 		} else {
 			anim.Play ("idle2");
-		}
+		}*/
 
 		#if UNITY_ANDROID
+		if(Input.acceleration.z<0){
+			//anim.Play("hop");
 		transform.Translate(0, 0, -Input.acceleration.z*moveSpeed*Time.deltaTime);
+		}else if(Input.acceleration.z>0){
+		transform.Translate(0, 0, -Input.acceleration.z*8*Time.deltaTime);
+			//anim.Play("hop");
+		}
 		transform.Rotate(0, Input.acceleration.x*turnSpeed*Time.deltaTime, 0);
 
 		//float x = Input.acceleration.x;
