@@ -27,7 +27,14 @@ public class TotalRankHandler : MonoBehaviour {
 
     IEnumerator doRank()
     {
-        Text totRank = GameObject.Find("TotalRank").GetComponent<Text>();
+//        Text totRank = GameObject.Find("TotalRank").GetComponent<Text>();
+        Text rank5 = GameObject.Find("rank5").GetComponent<Text>();
+        Text rank6 = GameObject.Find("rank6").GetComponent<Text>();
+        Text rank8 = GameObject.Find("rank8").GetComponent<Text>();
+        Text rank9 = GameObject.Find("rank9").GetComponent<Text>();
+        Text rank11 = GameObject.Find("rank11").GetComponent<Text>();
+        Text rank12 = GameObject.Find("rank12").GetComponent<Text>();
+
         string url = "http://52.78.164.46/loadRanking.php";
         WWWForm rankData = new WWWForm();
 
@@ -49,8 +56,15 @@ public class TotalRankHandler : MonoBehaviour {
         rankData.AddField("Nick", result[1]);
         WWW rank = new WWW(url, rankData);
         yield return rank;
-        totRank.text = rank.text;
-        char sp = '/';
+        value = rank.text.Split('/');
+
+        rank5.text = value[0];
+        rank6.text = value[1];
+        rank8.text = value[2];
+        rank9.text = value[3];
+        rank11.text = value[4];
+        rank12.text = value[5];
+
         //value = myRank.text.Split(sp);
 
 

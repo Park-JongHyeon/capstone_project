@@ -26,7 +26,9 @@ public class RankingHandler : MonoBehaviour {
 
     IEnumerator doRank()
     {
-        Text myRank = GameObject.Find("MyRanking").GetComponent<Text>();
+//        Text myRank = GameObject.Find("MyRanking").GetComponent<Text>();
+        Text rank2 = GameObject.Find("rank2").GetComponent<Text>();
+        Text rank3 = GameObject.Find("rank3").GetComponent<Text>();
         string url = "http://52.78.164.46/showMyrank.php";
         WWWForm rankData = new WWWForm();
 
@@ -48,7 +50,8 @@ public class RankingHandler : MonoBehaviour {
         rankData.AddField("Nick", result[1]);
         WWW rank = new WWW(url, rankData);
         yield return rank;
-        myRank.text = rank.text;
+        rank2.text = result[1];
+        rank3.text = rank.text;
         char sp = '/';
         //value = myRank.text.Split(sp);
 
