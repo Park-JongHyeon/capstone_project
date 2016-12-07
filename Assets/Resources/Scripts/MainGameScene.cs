@@ -45,5 +45,11 @@ public class MainGameScene : MonoBehaviour {
 
 	}
 
+	public void MoveToLoginScene()
+	{
+		Application.LoadLevel("LoginScene");
+
+	}
+
 
 }
