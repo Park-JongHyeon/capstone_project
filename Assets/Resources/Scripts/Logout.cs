@@ -11,6 +11,7 @@ public class Logout : MonoBehaviour {
     // Update is called once per frame
     public void MoveToLogout()
     {
+        Entity.e.RemoveAt(0);
         Application.LoadLevel("LoginScene");
     }
 

@@ -11,10 +11,11 @@ public class QuitHandler : MonoBehaviour {
     string renew_coin;
     string data;
     char sp = '/';
-    Text newCoin = GameObject.Find("coinPlus").GetComponent<Text>();
-    Text prevCoin = GameObject.Find("coinValue").GetComponent<Text>();
+    
 
     void Start() {
+        Text newCoin = GameObject.Find("coinPlus").GetComponent<Text>();
+        Text prevCoin = GameObject.Find("coinValue").GetComponent<Text>();
 
         foreach (_e x in Entity.e)
         {

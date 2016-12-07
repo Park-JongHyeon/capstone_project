@@ -33,4 +33,11 @@ public class MainGameScene : MonoBehaviour {
 		Application.LoadLevel ("ARScene");
 
 	}
+    public void MoveToRegisterScene()
+    {
+        Application.LoadLevel("RegisterScene");
+
+    }
+
+
 }
