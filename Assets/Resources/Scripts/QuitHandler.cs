@@ -46,7 +46,7 @@ public class QuitHandler : MonoBehaviour {
         string url = "http://52.78.164.46/coinUpdate.php";
         WWWForm retData = new WWWForm();
         Debug.Log("result[1]=" + result[1] + "  renew_coin : " + renew_coin);
-        retData.AddField("Nick", renew_result[1]);
+        retData.AddField("Nick", result[1]);
         retData.AddField("COIN", renew_coin);
 
         WWW ret = new WWW(url, retData);
