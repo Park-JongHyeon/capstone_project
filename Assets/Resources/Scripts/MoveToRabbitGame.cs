@@ -20,7 +20,7 @@ public class MoveToRabbitGame : MonoBehaviour {
             cococoin = int.Parse(result[2]) - 1;
             Debug.Log("cococoin000 =" + cococoin);
         }
-        if (int.Parse(result[2]) > 1)
+        if (int.Parse(result[2]) > 0)
         {
             Coin(result[1],cococoin);
             Application.LoadLevel("RabbitScene");
