@@ -32,6 +32,7 @@ public class MainGameGetter : MonoBehaviour {
         Text myCoin = GameObject.Find("coinVal").GetComponent<Text>();
         Text myScore = GameObject.Find("scoreVal").GetComponent<Text>();
         string url = "http://52.78.164.46/userInfo.php";
+        string conclusion;//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         WWWForm infoData = new WWWForm();
         
         string[] nick;
@@ -58,7 +59,10 @@ public class MainGameGetter : MonoBehaviour {
 
         myCoin.text = value[0];
         myScore.text = value[1];
-
+        conclusion = result[0] + "/" + result[1] + "/" + myCoin.text +"/"+ myScore.text;//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        Entity.e.RemoveAt(0);//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        Entity.e.Add(new _e { _s = conclusion });//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        
     }
 
 
